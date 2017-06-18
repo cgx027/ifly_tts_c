@@ -148,8 +148,23 @@ int main(int argc, char* argv[])
 	*
 	*/
 	const char* session_begin_params = "voice_name = xiaoyan, text_encoding = utf8, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2";
-	const char* filename             = "tts_sample.wav"; //合成的语音文件名称
+	const char* filename             = "tts.wav"; //合成的语音文件名称
 	const char* text                 = "王瑾娟是个大变态"; //合成文本
+
+    //user input
+    if(argc < 3){
+        printf("至少输入两个参数\n");
+        printf("./tts user_words output_path");
+        return 0;
+    }
+
+    printf("用户词语：");
+    printf("%s", argv[1]);
+    text = argv[1];
+
+    printf("输出路径");
+    printf("%s", argv[2]);
+    filename = argv[2];
 
 	/* 用户登录 */
 	ret = MSPLogin(NULL, NULL, login_params);//第一个参数是用户名，第二个参数是密码，第三个参数是登录参数，用户名和密码可在http://www.xfyun.cn注册获取
@@ -173,9 +188,9 @@ int main(int argc, char* argv[])
 	printf("合成完毕\n");
 
 exit:
-	printf("按任意键退出 ...\n");
-	getchar();
-	MSPLogout(); //退出登录
+	/* printf("按任意键退出 ...\n"); */
+	/* getchar(); */
+	/* MSPLogout(); //退出登录 */
 
 	return 0;
 }
