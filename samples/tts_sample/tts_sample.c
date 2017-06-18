@@ -149,7 +149,7 @@ int main(int argc, char* argv[])
 	*/
 	const char* session_begin_params = "voice_name = xiaoyan, text_encoding = utf8, sample_rate = 16000, speed = 50, volume = 50, pitch = 50, rdn = 2";
 	const char* filename             = "tts.wav"; //合成的语音文件名称
-	const char* text                 = "王瑾娟是个大变态"; //合成文本
+	const char* text                 = ""; //合成文本
 
     //user input
     if(argc < 3){
